@@ -17,6 +17,10 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     steps:
+      # 1. 🌟 FIX: Initialize the Git repository layout on the runner
+      - name: Checkout Upstream Repository
+        uses: actions/checkout@v4
+        
       # Download the artifact containing the PR number
       - name: Download PR Context Artifact
         uses: actions/download-artifact@v4
